@@ -110,20 +110,6 @@ Install the dependencies with:
 pip install numpy scikit-learn rank_bm25 sentence-transformers torch transformers datasets joblib
 ```
 
-## Usage
-
-1. Place `corpus.jsonl`, `claims_train.jsonl`, `claims_dev.jsonl`, and `claims_test.jsonl` inside a `data/` folder next to the notebook.
-2. Run the notebook cells in order, section by section:
-   - Run **Retriever and Paper Selection** to build and test the retrievers.
-   - Run **Evidence Selection** to train the evidence-selection classifier.
-   - Run **Fine-tuning & Model Selection** to fine-tune the SciBERT verdict classifier (requires a GPU for reasonable training time).
-3. Use the final helper function to run the full pipeline on a new claim:
-
-```python
-result = predict_verdict(claim_text, evidence_text)
-print(result)
-# {'verdict': 'SUPPORT', 'confidence': 0.91, 'all_probs': {...}}
-```
 ## How to Try the System
 
 The system can be tested in two ways:
