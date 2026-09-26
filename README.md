@@ -124,21 +124,37 @@ result = predict_verdict(claim_text, evidence_text)
 print(result)
 # {'verdict': 'SUPPORT', 'confidence': 0.91, 'all_probs': {...}}
 ```
+## How to Try the System
 
-## Results Summary
+The system can be tested in two ways:
 
-| Stage | Metric | Best Result |
-|---|---|---|
-| Retrieval | Recall@5 / MRR | Compared across TF-IDF, BM25, Semantic (SPECTER) |
-| Evidence Selection | Evidence Recall@1/@3/@5 | Random Forest vs Logistic Regression compared |
-| Verdict Classification | Macro F1 | **0.696** (partial fine-tuning of SciBERT) |
+### 1. User Mode
 
-## Notes
+For users who want to try the system normally:
 
-- The semantic retriever uses the `allenai-specter` model, which is designed specifically for scientific document embeddings.
-- Evidence selection features are intentionally lightweight (BM25, overlap, position, length) so the model trains quickly and remains interpretable.
-- Partial fine-tuning (unfreezing only the last two encoder layers) gave the best trade-off between training cost and accuracy compared to full-freeze and LoRA approaches.
+1. Open `deployment/gradio_app.ipynb`.
+2. Run all cells in the notebook.
+3. The Gradio interface will launch automatically.
+4. Enter a scientific claim.
+5. The system will retrieve relevant scientific papers, select supporting evidence, and return the predicted verdict:
 
-## License
+   * SUPPORT
+   * CONTRADICT
+   * NOT ENOUGH INFO
 
-Add your preferred license here (e.g., MIT).
+### 2. Developer Mode
+
+For developers who want to test the full pipeline:
+
+1. Open the full pipeline notebook.
+2. Choose the dataset split to work with (Train/Test).
+3. Run the complete pipeline from preprocessing and retrieval to evidence verification and prediction.
+4. Select samples from the dataset and run predictions.
+5. Evaluate and inspect the system's results across the selected data.
+
+## Future Improvements
+
+* **Deployment** — Deploy the system online to make it accessible without requiring local setup.
+
+
+
