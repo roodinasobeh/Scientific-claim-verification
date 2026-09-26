@@ -138,6 +138,11 @@ For developers who want to test the full pipeline:
 4. Select samples from the dataset and run predictions.
 5. Evaluate and inspect the system's results across the selected data.
 
+## User Interface
+
+### Gradio Interface
+<img width="1912" height="872" alt="image" src="https://github.com/user-attachments/assets/c23a4adb-45fc-454f-b9ab-3d9cade84eb1" />
+
 ## Future Improvements
 
 * **Deployment** — Deploy the system online to make it accessible without requiring local setup.
